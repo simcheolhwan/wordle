@@ -1,9 +1,24 @@
 @import "normalize";
-@import "variables";
 
 body {
   padding: 20px;
   font-family: "Roboto Mono", monospace, monospace;
+}
+
+form {
+  text-align: center;
+}
+
+:root {
+  --present: #b59f3b;
+  --correct: #538d4e;
+  --absent: #3a3a3c;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* guess */
@@ -11,8 +26,6 @@ body {
   display: grid;
   gap: 4px;
   justify-content: center;
-
-  margin: 20px;
 }
 
 .guess {
@@ -61,4 +74,17 @@ body {
   height: 60px;
   min-width: 32px;
   text-transform: uppercase;
+}
+
+/* bg */
+.present {
+  background-color: var(--present);
+}
+
+.correct {
+  background-color: var(--correct);
+}
+
+.absent {
+  background-color: var(--absent);
 }

@@ -1,12 +1,14 @@
+import classNames from "classnames"
 import { ReactComponent as Backspace } from "./Backspace.svg"
 
 interface Props {
+  getKeyState: (key: string) => string
   onKey: (key: string) => void
   onBackspace: () => void
   onEnter: () => void
 }
 
-const Keyboard = ({ onKey, onBackspace, onEnter }: Props) => {
+const Keyboard = ({ getKeyState, onKey, onBackspace, onEnter }: Props) => {
   const keys = [
     ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
     ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
@@ -26,11 +28,13 @@ const Keyboard = ({ onKey, onBackspace, onEnter }: Props) => {
               </button>
             )}
 
-            {group.map((key) => (
-              <button className="key" onClick={() => onKey(key)} key={key}>
-                {key}
-              </button>
-            ))}
+            {group.map((key) => {
+              return (
+                <button className={classNames("key", getKeyState(key))} onClick={() => onKey(key)} key={key}>
+                  {key}
+                </button>
+              )
+            })}
 
             {isLast && (
               <button className="key" onClick={onBackspace}>

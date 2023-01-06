@@ -6,12 +6,17 @@
     "lint": "eslint src",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
   "dependencies": {
+    "@types/ramda": "^0.28.20",
+    "classnames": "^2.3.2",
+    "ramda": "^0.28.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5"
   },
   "devDependencies": {
     "@tsconfig/vite-react": "^1.0.1",
@@ -26,7 +31,8 @@
     "sass": "^1.57.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.3",
-    "vite-plugin-svgr": "^2.4.0"
+    "vite-plugin-svgr": "^2.4.0",
+    "vitest": "^0.26.3"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": "eslint --max-warnings=0",

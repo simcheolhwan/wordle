@@ -1,18 +1,27 @@
 import { PropsWithChildren } from "react"
+import { answer } from "./App"
 import Guess from "./Guess"
 
 const Guesses = ({ guesses, children }: PropsWithChildren<{ guesses: string[] }>) => {
   return (
     <div className="guesses">
       {guesses.map((guess) => {
-        return <Guess key={guess}>{guess}</Guess>
+        return (
+          <Guess answer={answer} key={guess}>
+            {guess}
+          </Guess>
+        )
       })}
 
-      {children}
+      {guesses.length < 6 && (
+        <>
+          {children}
 
-      {Array.from({ length: 5 - guesses.length }, () => "     ").map((placeholder, index) => (
-        <Guess key={index}>{placeholder}</Guess>
-      ))}
+          {Array.from({ length: 5 - guesses.length }, () => "").map((placeholder, index) => (
+            <Guess key={index}>{placeholder}</Guess>
+          ))}
+        </>
+      )}
     </div>
   )
 }
